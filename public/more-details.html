@@ -6,18 +6,18 @@
     <link rel="stylesheet" href="./output.css" />
   </head>
   <body>
-    <header class="w-full flex items-center justify-between px-20 py-8 shadow-md fixed bg-white">
-      <h1 class="text-[40px] text-xl">Where in the world?</h1>
-      <div class="flex gap-2 cursor-pointer" id="theme-toggle">
+    <header class="w-full flex items-center justify-between px-5 md:px-20 py-8 shadow-md fixed bg-white z-10">
+      <h1 class="text-sm md:text-xl">Where in the world?</h1>
+      <div class="flex gap-2 cursor-pointer text-sm md:text-xl" id="theme-toggle">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
         </svg>
         <span> Dark Mode </span>
       </div>
     </header>
-    <main class="bg-lmbg-very-light-gray pt-32 h-screen">
-      <section class="px-20">
-        <div class="w-fit">
+    <main class="bg-lmbg-very-light-gray pt-32">
+      <section class="px-5 md:px-20 mb-10 md:mb-0">
+        <div class="w-fit" id="back-button">
           <a href="./index.html" class="px-6 py-2 flex shadow-md gap-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
@@ -26,8 +26,8 @@
           </a>
         </div>
       </section>
-      <section class="px-20 mt-20">
-        <div class="flex gap-32" id="country-container"></div>
+      <section class="px-5 md:px-20 h-full">
+        <div class="flex flex-col lg:flex-row gap-10 md:gap-32" id="country-container"></div>
         <div class="w-full h-screen flex justify-center items-center relative" id="loader">
           <div class="absolute top-10 ease-linear rounded-full border-8 border-t-8 border-t-black border-gray-200 h-16 w-16 animate-spin"></div>
         </div>
