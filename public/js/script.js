@@ -1,4 +1,5 @@
 const COUNTRY_CONTAINER = document.getElementById("country-container");
+const ERROR_CONTAINER = document.getElementById("error-container");
 const LOADER = document.getElementById("loader");
 let COUNTRY_CARD;
 // const THEME = localStorage.getItem("theme");
@@ -32,9 +33,9 @@ async function fetchData() {
     console.error(error);
     if (error) {
       LOADER.style.display = "none";
-      COUNTRY_CONTAINER.innerHTML = `
-      <div class="w-full flex items-center h-screen">
-      <h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>;
+      ERROR_CONTAINER.innerHTML = `
+      <div class="w-full h-full flex justify-center">
+      <h1 class="text-2xl text-red-500 w-full text-center">Internal Server Error. Consider refreshing the page to do the fecthing again</h1>
       </div>`;
     }
   }
@@ -143,9 +144,9 @@ SEARCH_FORM.addEventListener("submit", async (e) => {
     console.error(error);
     if (error) {
       LOADER.style.display = "none";
-      COUNTRY_CONTAINER.innerHTML = `
-      <div class="w-full flex items-center h-screen">
-      <h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>;
+      ERROR_CONTAINER.innerHTML = `
+      <div class="w-full h-full flex justify-center">
+      <h1 class="text-2xl text-red-500 w-full text-center">Internal Server Error. Consider refreshing the page to do the fecthing again</h1>
       </div>`;
     }
   }
@@ -187,9 +188,9 @@ FILTER_COUNTRY.addEventListener("input", () => {
       console.error(error);
       if (error) {
         LOADER.style.display = "none";
-        COUNTRY_CONTAINER.innerHTML = `
-        <div class="w-full flex items-center h-screen">
-        <h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>;
+        ERROR_CONTAINER.innerHTML = `
+        <div class="w-full h-full flex justify-center">
+        <h1 class="text-2xl text-red-500 w-full text-center">Internal Server Error. Consider refreshing the page to do the fecthing again</h1>
         </div>`;
       }
     }
