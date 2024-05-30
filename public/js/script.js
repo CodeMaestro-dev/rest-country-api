@@ -32,7 +32,10 @@ async function fetchData() {
     console.error(error);
     if (error) {
       LOADER.style.display = "none";
-      COUNTRY_CONTAINER.innerHTML = `<h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>`;
+      COUNTRY_CONTAINER.innerHTML = `
+      <div class="w-full flex items-center h-screen">
+      <h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>;
+      </div>`;
     }
   }
 }
@@ -140,7 +143,10 @@ SEARCH_FORM.addEventListener("submit", async (e) => {
     console.error(error);
     if (error) {
       LOADER.style.display = "none";
-      COUNTRY_CONTAINER.innerHTML = `<h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>`;
+      COUNTRY_CONTAINER.innerHTML = `
+      <div class="w-full flex items-center h-screen">
+      <h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>;
+      </div>`;
     }
   }
 });
@@ -157,7 +163,6 @@ FILTER_COUNTRY.addEventListener("input", () => {
     try {
       const RESPONSE = await fetch(`https://restcountries.com/v3.1/region/${FILTER}`);
       const DATA = await RESPONSE.json();
-      console.log(DATA);
       DATA.map((country) => {
         LOADER.style.display = "none";
         COUNTRY_CONTAINER.innerHTML += `
@@ -183,7 +188,7 @@ FILTER_COUNTRY.addEventListener("input", () => {
       if (error) {
         LOADER.style.display = "none";
         COUNTRY_CONTAINER.innerHTML = `
-        <div class="w-full flex items-center">
+        <div class="w-full flex items-center h-screen">
         <h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>;
         </div>`;
       }
