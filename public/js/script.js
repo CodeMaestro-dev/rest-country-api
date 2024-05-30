@@ -30,10 +30,13 @@ async function fetchData() {
     themeHandler();
   } catch (error) {
     console.error(error);
+    if (error) {
+      LOADER.style.display = "none";
+      COUNTRY_CONTAINER.innerHTML = `<h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>`;
+    }
   }
 }
 fetchData();
-console.log(COUNTRY_CARD);
 
 const THEME_TOGGLE = document.getElementById("theme-toggle");
 const HEADER = document.querySelector("header");
@@ -135,6 +138,10 @@ SEARCH_FORM.addEventListener("submit", async (e) => {
     COUNTRY_CARD = document.querySelectorAll(".country-card");
   } catch (error) {
     console.error(error);
+    if (error) {
+      LOADER.style.display = "none";
+      COUNTRY_CONTAINER.innerHTML = `<h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>`;
+    }
   }
 });
 
@@ -143,13 +150,14 @@ const FILTER_COUNTRY = document.getElementById("filter-country");
 
 FILTER_COUNTRY.addEventListener("input", () => {
   const FILTER = FILTER_COUNTRY.options[FILTER_COUNTRY.selectedIndex].text;
+  COUNTRY_CONTAINER.innerHTML = "";
+  LOADER.style.display = "flex";
 
   async function fetchRegion() {
     try {
       const RESPONSE = await fetch(`https://restcountries.com/v3.1/region/${FILTER}`);
       const DATA = await RESPONSE.json();
-      // console.log(DATA);
-      COUNTRY_CONTAINER.innerHTML = "";
+      console.log(DATA);
       DATA.map((country) => {
         LOADER.style.display = "none";
         COUNTRY_CONTAINER.innerHTML += `
@@ -162,7 +170,7 @@ FILTER_COUNTRY.addEventListener("input", () => {
                     <div class="flex flex-col gap-2">
                     <p>Population: ${country.population}</p>
                     <p>Region: ${country.region}</p>
-                    <p>Capital: ${country.capital[0]}</p>
+                    <p>Capital: ${country.capital}</p>
                 </div>
             </div>
         `;
@@ -172,6 +180,13 @@ FILTER_COUNTRY.addEventListener("input", () => {
       COUNTRY_CARD = document.querySelectorAll(".country-card");
     } catch (error) {
       console.error(error);
+      if (error) {
+        LOADER.style.display = "none";
+        COUNTRY_CONTAINER.innerHTML = `
+        <div class="w-full flex items-center">
+        <h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>;
+        </div>`;
+      }
     }
   }
 

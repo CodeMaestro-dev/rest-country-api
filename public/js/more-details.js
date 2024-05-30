@@ -8,9 +8,9 @@ let loaded = false;
 async function fetchData() {
   try {
     const RESPONSE = await fetch(`https://restcountries.com/v3.1/name/${COUNTRY}`);
+    console.log(RESPONSE);
     const DATA = await RESPONSE.json();
-    console.log(DATA);
-
+    // console.log(DATA);
     DATA.map((country) => {
       LOADER.style.display = "none";
       COUNTRY_CONTAINER.innerHTML += `
@@ -71,6 +71,10 @@ async function fetchData() {
     themeHandler();
   } catch (error) {
     console.error(error);
+    if (error) {
+      LOADER.style.display = "none";
+      COUNTRY_CONTAINER.innerHTML = `<h1 class="text-2xl text-red-500 w-full text-center mt-10">Internal Server Error. Consider refresshing the page to do the fecthing again</h1>`;
+    }
   }
 }
 
