@@ -65,4 +65,4 @@ const COUNTRY = new URLSearchParams(window.location.search).get("country");
 
 ## Acknowledgments
 
-I would specially ike to thank my supervisor at work. Mr. Golden Azubuike for helping me with the idea of using serch params for diaplying the country details.
+I would specially ike to thank my supervisor at work. Mr. Golden Azubuike for helping me with the idea of using serch params for displying the country details.
